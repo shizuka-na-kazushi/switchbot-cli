@@ -1,0 +1,22 @@
+{
+  "name": "switchbot-cli",
+  "version": "1.0.0",
+  "description": "SwitchBot CLI: command line Bot controller",
+  "main": "dist/index.js",
+  "bin": {
+    "switchbot-cli": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}
