@@ -87,6 +87,15 @@ const commandList : {deviceType: string, supportCommands: SwitchBotDeviceSupport
     {argument: "lock", command:   {execute: deviceCmd_lock_execute,   description: deviceCmd_lock_describe}},
     {argument: "unlock", command:  {execute: deviceCmd_unlock_execute,  description: deviceCmd_unlock_describe}},
   ]},
+  {deviceType: "Plug", supportCommands: [
+    {argument: "turnOn", command:   {execute: deviceCmd_turnOn_execute,   description: deviceCmd_turnOn_describe}},
+    {argument: "turnOff", command:  {execute: deviceCmd_turnOff_execute,  description: deviceCmd_turnOff_describe}},
+  ]},
+  {deviceType: "Plug Mini (US)", supportCommands: [
+    {argument: "turnOn", command:   {execute: deviceCmd_turnOn_execute,   description: deviceCmd_turnOn_describe}},
+    {argument: "turnOff", command:  {execute: deviceCmd_turnOff_execute,  description: deviceCmd_turnOff_describe}},
+    {argument: "toggle", command:  {execute: deviceCmd_toggle_execute,  description: deviceCmd_toggle_describe}},
+  ]},
   {deviceType: "Plug Mini (JP)", supportCommands: [
     {argument: "turnOn", command:   {execute: deviceCmd_turnOn_execute,   description: deviceCmd_turnOn_describe}},
     {argument: "turnOff", command:  {execute: deviceCmd_turnOff_execute,  description: deviceCmd_turnOff_describe}},
