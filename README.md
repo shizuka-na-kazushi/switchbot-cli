@@ -1,7 +1,7 @@
-
 # SwitchBot CLI command (unofficial)
+[English](README.md) | [日本語](README.ja.md)
 
-SwitchBotのホームオートメーション機器をリモート制御するためのコマンドライン・プログラムです。
+A command-line program for remote control of SwitchBot home automation devices.
 
 ## How to install
 
@@ -11,55 +11,50 @@ npm install switchbot-cli
 
 ## Getting started
 
-はじめに、SwitchBot モバイルアプリでtokenとsecretを取得する必要があります。
-アプリの設定で、アプリバージョン(app version)を10回クリックすると開発者メニューが表示されます。
-そこからtokenとsecretを得られます。
-
-
-初めてコマンドを実行したときに、token と secretの入力を促すプロンプトが表示されます。コピー＆ペーストで入力して下さい。
-
+First, you need to obtain a token and secret from the SwitchBot mobile app.
+In the app settings, tap the app version 10 times to reveal the developer menu.
+You can obtain the token and secret from there.
+When you run a command for the first time, you'll be prompted to enter the token and secret. Simply copy and paste them when prompted.
 
 ## How to use
-
-ヘルプで使えるコマンドが表示されます。
+You can view available commands using the help command:
 
 ```bash
 switchbot-cli help
 ```
 
-## Control `device`
-
-まずは、デバイスの一覧を取得しましょう
+## Control device
+Let's start by getting a list of devices:
 
 ```bash
 switchbot-cli device list
 ```
 
-デバイスの状態を確認するには、上記のリストで得られる ``deviceId``を使います。
+To check the status of a device, use the ``deviceId`` obtained from the list above:
 
 ```bash
 switchbot-cli device -d {deviceId} status
 ```
 
-デバイス固有のコマンドは``help``で確認できます。
+Device-specific commands can be viewed using ``help``:
 
 ```bash
 switchbot-cli device -d {deviceId} help
 ```
 
-例えば、デバイスの電源を入れるには以下のように実行できます。
+For example, to turn on a device, you can execute:
 
 ```bash
 switchbot-cli device -d {deviceId} turnOn
 ```
 
-``-d {deviceId}``の入力が面倒な場合は、``device use`` コマンドでデフォルトのデバイスを覚えておくことができます。
+If you find entering ``-d {deviceId}`` tedious, you can set a default device using the device use command:
 
 ```bash
 switchbot-cli device use {deviceId}
 ```
 
-一度登録すると``-d {deviceId}``オプションは不要です。単に以下のように実行すると、デフォルトデバイスの電源を入れることができます。
+Once registered, the ``-d {deviceId}`` option becomes optional. You can simply execute commands like this to control the default device:
 
 ```bash
 switchbot-cli device turnOn
@@ -68,26 +63,23 @@ switchbot-cli device status
 ...
 ```
 
-## Control `scene`
-
-SwitchBotアプリで登録した`シーン`の制御もできます。
-
-シーン一覧を取得してみましょう。
+## Control scene
+You can also control scenes registered in the SwitchBot app.
+Let's retrieve a list of scenes:
 
 ```bash
 switchbot-cli scene list
 ```
 
-シーンの実行には、上の``scene list``コマンドで得られるsceneIdが必要になります。以下のように実行します。
+To execute a scene, you'll need the sceneId obtained from the ``scene list`` command above. Execute it like this:
 
 ```bash
 switchbot-cli scene exec {sceneId}
 ```
 
 ## Clear config and cache
-
-tokenとsecretは保存されます。また、device listはキャッシュされます。
-これらのコマンドの保存したデータは、以下のコマンドで初期化できます。
+The token and secret are saved, and the device list is cached.
+You can clear all saved data using the following command:
 
 ```bash
 switchbot-cli clean
@@ -95,16 +87,15 @@ switchbot-cli clean
 
 ## Disclaimer
 
-- Webhookに関するコマンドは未実装
-- すべてのコマンドが実装されているわけではありません（貢献歓迎）
-- いくつかの「デバイス固有」コマンドは実際の機器でテストされていません（テストして動いたら連絡くれたら嬉しい!）
+Webhook-related commands are not implemented
+Not all commands are implemented (contributions welcome)
+Some "device-specific" commands haven't been tested with actual devices (please let me know if you test them and they work!)
 
 ## License
 
-- The MIT License
+The MIT License
 
 ## Technical info
 
-本プログラムは、内部で[SwitchBot が用意している Web API](https://github.com/OpenWonderLabs/SwitchBotAPI)を使っています。
-プログラムはNodeJSで記述されています。
-
+This program internally uses [the Web API provided by SwitchBot]((https://github.com/OpenWonderLabs/SwitchBotAPI)).
+The program is written in NodeJS.
