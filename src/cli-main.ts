@@ -4,14 +4,17 @@ import promptSecret from "./prompt-secret";
 import SwitchBotSystem from "./switchbot-sys";
 import { CliCommand, CliCommandDesc, CliOptions } from "./types";
 import { XDGPaths } from "./xdgpath";
+import getPackageJson from "./cli-ver";
 
-const SwitchBotCliVersion = "0.9.0"
 
 const SET_EXIT_CODE = (code: number) => {process.on("exit", () => process.exit(code));}
 
 const describeSwitchBotCli : CliCommandDesc = (argv: string[], options: CliOptions) => {
+
+  const pkgJson = getPackageJson();
+
     console.log(`
-CLI for SwitchBot devices - version: ${SwitchBotCliVersion}
+${pkgJson.description} - version: ${pkgJson.version}
 
 'switchbot-cli' takes sub commands below:
 
@@ -30,7 +33,8 @@ const subCommand_Help : CliCommand = {
 
 const subCommand_Version : CliCommand = {
   execute: async (argv: string[], options: CliOptions, sys: SwitchBotSystem) => {
-    console.log(`version: ${SwitchBotCliVersion}`);
+    const pkgJson = getPackageJson();
+    console.log(`version: ${pkgJson.version}`);
   },
   description: (argv: string[], options: CliOptions) => {console.log("version: show the version")}
 };
