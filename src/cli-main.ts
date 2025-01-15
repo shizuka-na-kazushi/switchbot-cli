@@ -4,7 +4,7 @@ import promptSecret from "./prompt-secret";
 import SwitchBotSystem from "./switchbot-sys";
 import { CliCommand, CliCommandDesc, CliOptions } from "./types";
 import { XDGPaths } from "./xdgpath";
-import getPackageJson from "./cli-ver";
+import getPackageJson from "./ver";
 
 
 const SET_EXIT_CODE = (code: number) => {process.on("exit", () => process.exit(code));}
