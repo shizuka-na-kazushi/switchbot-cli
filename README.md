@@ -6,7 +6,7 @@ A command-line program for remote control of SwitchBot home automation devices.
 ## How to install
 
 ```bash
-npm install switchbot-cli
+npm install -g switchbot-cli
 ```
 
 ## Getting started

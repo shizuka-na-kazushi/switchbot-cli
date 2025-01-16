@@ -7,7 +7,7 @@ SwitchBotのホームオートメーション機器をリモート制御する�
 ## How to install
 
 ```bash
-npm install switchbot-cli
+npm install -g switchbot-cli
 ```
 
 ## Getting started
